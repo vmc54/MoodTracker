@@ -7,8 +7,8 @@ export default function Home() {
                 <Image
                     src="/mood.png"
                     alt="Mood Tracker Logo"
-                    width={400}
-                    height={400}
+                    width={200}
+                    height={200}
                     priority
                 />
 
