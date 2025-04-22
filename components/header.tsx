@@ -10,11 +10,11 @@ export async function Header() {
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     <Link href="/" className="flex items-center gap-2">
-                        CS 5356 – HW 6
+                        MOOD TRACKER
                     </Link>
                     <nav className="flex items-center gap-2">
                         <Link href="/todos">
-                            <Button variant="ghost">Todos</Button>
+                            <Button variant="ghost">Diary</Button>
                         </Link>
                         <AdminNavEntry />
                     </nav>
