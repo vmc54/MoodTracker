@@ -16,7 +16,7 @@ export default function Home() {
                 <h1 className="text-3xl font-bold">Welcome to Mood Tracker!</h1>
 
                 <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
-                    This app helps you log and reflect on your daily moods. Whether you're feeling joyful, anxious, calm, or anything in between — tracking your emotions can help build awareness and improve well-being over time.
+                    This app helps you log and reflect on your daily moods. Whether you&apos;re feeling joyful, anxious, calm, or anything in between — tracking your emotions can help build awareness and improve well-being over time.
                 </p>
 
                 <ol className="list-decimal list-inside text-sm font-[family-name:var(--font-geist-mono)]">

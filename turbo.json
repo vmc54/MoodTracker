@@ -1,17 +1,26 @@
 {
     "$schema": "https://turbo.build/schema.json",
-    "tasks": {
-        "build": {
-            "dependsOn": ["^build"],
-            "outputs": [".next/**", "!.next/cache/**"]
-        },
-        "check-types": {
-            "dependsOn": ["^check-types"]
-        },
-        "dev": {
-            "persistent": true,
-            "cache": false
-        }
-    },
-    "globalEnv": ["BETTER_AUTH_SECRET", "DATABASE_URL"]
-}
+    "pipeline": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": [".next/**"],
+        "env": [
+          "POSTGRES_URL",
+          "POSTGRES_PRISMA_URL",
+          "DATABASE_URL_UNPOOLED",
+          "POSTGRES_URL_NON_POOLING",
+          "PGHOST",
+          "POSTGRES_USER",
+          "POSTGRES_PASSWORD",
+          "POSTGRES_DATABASE",
+          "PGPASSWORD",
+          "PGDATABASE",
+          "PGHOST_UNPOOLED",
+          "PGUSER",
+          "POSTGRES_URL_NO_SSL",
+          "POSTGRES_HOST"
+        ]
+      }
+    }
+  }
+  
