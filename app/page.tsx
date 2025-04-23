@@ -26,15 +26,7 @@ export default function Home() {
             </main>
 
             <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-                <span>Built with ❤️ using Next.js</span>
-                <a
-                    href="https://vercel.com/"
-                    className="hover:underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Hosted on Vercel
-                </a>
+                <span>Built with ❤️ by Vivien Chang vmc54</span>
             </footer>
         </div>
     )
