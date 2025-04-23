@@ -1,70 +1,60 @@
 import { desc } from "drizzle-orm"
-
 import { db } from "@/database/db"
-import { todos } from "@/database/schema"
+import { moods } from "@/database/schema/moods"
 
-import { Button } from "@/components/ui/button"
-import { deleteTodo } from "@/actions/todos"
-
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic"
 
 export default async function AdminPage() {
-    
-    /* YOUR AUTHORIZATION CHECK HERE */
+  // Optional: Add auth check here
 
-    const allTodos = await db.query.todos.findMany({
-        with: {
-            user: {
-                columns: {
-                    name: true,
-                }
-            }
+  const allMoods = await db.query.moods.findMany({
+    with: {
+      user: {
+        columns: {
+          name: true,
         },
-        orderBy: [desc(todos.createdAt)]
-    });
+      },
+    },
+    orderBy: [desc(moods.createdAt)],
+  })
 
-    return (
-        <main className="py-8 px-4">
-            <section className="container mx-auto">
-                <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
+  return (
+    <main className="py-8 px-4">
+      <section className="container mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
 
-                <div className="border rounded-md overflow-hidden">
-                    <table className="w-full">
-                        <thead className="bg-muted">
-                            <tr>
-                                <th className="py-2 px-4 text-left">User</th>
-                                <th className="py-2 px-4 text-left">Todo</th>
-                                <th className="py-2 px-4 text-center">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {allTodos.length === 0 && (
-                                <tr>
-                                    <td colSpan={3} className="py-2 px-4 text-center">No todos found</td>
-                                </tr>
-                            )}
-                            {allTodos.map((todo) => (
-                                <tr key={todo.id} className="border-t">
-                                    <td className="py-2 px-4">{todo.user.name}</td>
-                                    <td className="py-2 px-4">{todo.title}</td>
-                                    <td className="py-2 px-4 text-center">
-                                        <form action={deleteTodo}>
-                                            <input type="hidden" name="id" value={todo.id} />
-                                            <Button
-                                                variant="destructive"
-                                                size="sm"
-                                                type="submit"
-                                            >
-                                                Delete
-                                            </Button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </main>
-    )
-} 
+        <div className="border rounded-md overflow-hidden">
+          <table className="w-full">
+            <thead className="bg-muted">
+              <tr>
+                <th className="py-2 px-4 text-left">User</th>
+                <th className="py-2 px-4 text-left">Mood</th>
+                <th className="py-2 px-4 text-left">Note</th>
+                <th className="py-2 px-4 text-left">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allMoods.length === 0 && (
+                <tr>
+                  <td colSpan={4} className="py-2 px-4 text-center">
+                    No moods logged
+                  </td>
+                </tr>
+              )}
+              {allMoods.map((entry) => (
+                <tr key={entry.id} className="border-t">
+                  <td className="py-2 px-4">{entry.user.name}</td>
+                  <td className="py-2 px-4">{entry.mood}</td>
+                  <td className="py-2 px-4">{entry.note}</td>
+                  <td className="py-2 px-4">
+                    {new Date(entry.createdAt).toLocaleDateString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  )
+}
