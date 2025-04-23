@@ -13,8 +13,8 @@ export async function Header() {
                         MOOD TRACKER
                     </Link>
                     <nav className="flex items-center gap-2">
-                        <Link href="/todos">
-                            <Button variant="ghost">Diary</Button>
+                        <Link href="/log">
+                            <Button variant="ghost">Mood Log</Button>
                         </Link>
                         <Link href="/calendar">
                             <Button variant="ghost">Calendar</Button>
