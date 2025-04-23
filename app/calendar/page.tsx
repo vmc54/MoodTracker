@@ -17,9 +17,9 @@ const mockMoodEntries = [
 
 export default function CalendarPage() {
   return (
-    <main className="py-8 px-4">
-      <section className="container mx-auto max-w-2xl">
-        <h1 className="text-3xl font-bold mb-6 text-center">Mood Calendar</h1>
+    <main className="py-10 px-4 flex items-center justify-center min-h-screen">
+      <section className="w-full max-w-2xl text-center">
+        <h1 className="text-3xl font-bold mb-6">Mood Calendar</h1>
         <MoodCalendar moods={mockMoodEntries} />
       </section>
     </main>
