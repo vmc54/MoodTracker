@@ -9,19 +9,19 @@ const mockMoodEntries = [
   },
   {
     id: "2",
-    mood: "😩 Stressed",
-    note: "Busy week",
+    mood: "😊 Happy",
+    note: "Chilled and read a book",
     createdAt: new Date("2025-04-22"),
   },
 ]
 
 export default function CalendarPage() {
   return (
-    <main className="py-10 px-4 flex items-center justify-center min-h-screen">
-      <section className="w-full max-w-2xl text-center">
-        <h1 className="text-3xl font-bold mb-6">Mood Calendar</h1>
+    <main className="py-10 px-4 min-h-screen flex flex-col items-center justify-start">
+      <h1 className="text-3xl font-bold mb-6 text-center">Mood Calendar</h1>
+      <div className="flex justify-center w-full">
         <MoodCalendar moods={mockMoodEntries} />
-      </section>
+      </div>
     </main>
   )
 }
