@@ -14,4 +14,3 @@ export function MoodItem({ moodEntry }: { moodEntry: { id: string; mood: string;
       </li>
     )
   }
-  
