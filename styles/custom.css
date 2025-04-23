@@ -27,3 +27,7 @@
     --color-warning: var(--warning);
     --color-warning-foreground: var(--warning-foreground);
 }
+
+.react-calendar__month-view__weekdays__weekday abbr {
+    color: inherit !important;
+  }
